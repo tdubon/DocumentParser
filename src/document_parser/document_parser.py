@@ -31,7 +31,7 @@ class Parser:
         self.sentence_holder = re.split(pattern, self.long_string) 
         
         # remove white spaces, meta characters, puctuation and lowercase
-        pattern = r'[^\w]+[\s]|\\t|\?!.,:;' #\w match word characters, \s match whitespace characters, meta characters
+        pattern = r'[^\w]+[\s]|(\\t)|[()?!.,:;]' #\w match word characters, \s match whitespace characters, meta characters
         for i in self.sentence_holder:
             self.sentence_holder_clean.append(re.sub(pattern, "", i).lower())
     
