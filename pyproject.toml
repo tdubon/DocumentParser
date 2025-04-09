@@ -1,0 +1,34 @@
+
+[project]
+name = "document_parser"
+version = "0.0.1"
+authors = [ { name="Tannia Dubon", email="tdubon6@gmail.com" } ]
+description = "This repo contains the files for the DocumentParser package. Use it to read in a text file, process to split document into sentences, remove whitespaces, and lower-case all words. The output  are cleaned, indexed sentences in json format"
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = [
+	"setuptools >= 77.0.3", 
+	"os", 
+	"json", 
+	"pandas", 
+	"re" ]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+license = "MIT"
+license-files = ["LICEN[CS]E*"]
+
+[project.urls]
+Homepage = "https://github.com/tdubon/DocumentParser/tree/main"
+Issues = "https://github.com/tdubon/DocumentParser/issues"
+
+
+[build-system]
+requires = [ 
+	"setuptools >= 77.0.3", 
+	"os", 
+	"json", 
+	"pandas", 
+	"re"]
+build-backend = "setuptools.build_meta"
