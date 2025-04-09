@@ -33,7 +33,7 @@ class Parser:
         # remove white spaces, meta characters, puctuation and lowercase
         pattern = r'[^\w]+[\s]|(\\t)|[()?!.,:;]' #\w match word characters, \s match whitespace characters, meta characters
         for i in self.sentence_holder:
-            self.sentence_holder_clean.append(re.sub(pattern, "", i).lower())
+            self.sentence_holder_clean.append(re.sub(pattern, " ", i).lower())
     
     def convert_to_json(self):
         self.data_dict = {}
