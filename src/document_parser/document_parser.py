@@ -26,7 +26,7 @@ class Parser:
             self.long_string = self.long_string + " " + self.clean_lines[i]
         
         #split string by punctuation
-        pattern = r'(?<=[.!?])\s+'  #match by punctuation 
+        pattern = r'[.!?]\s+'  #match by punctuation 
         pattern2 = r'[A-Za-zd]+.\s' #match alphabets and digits
         self.sentence_holder = re.split(pattern, self.long_string) 
         
