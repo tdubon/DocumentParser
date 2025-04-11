@@ -30,10 +30,12 @@ class Parser:
         pattern2 = r'[A-Za-zd]+.\s' #match alphabets and digits
         self.sentence_holder = re.split(pattern, self.long_string) 
         
-        # remove white spaces, meta characters, puctuation and lowercase
-        pattern = r"[^\w]+[\s]{2,}|(\\t)|(\\u)|[()-?[!#.',:;]" #\w match word characters, \s match whitespace characters, meta characters
+        # remove white spaces, meta characters, puctuation and lowercase  # [^\w]+[\s]|(\\t)|[()-?!.,:;]
+        pattern = r"(\\t)|(\\u)|[()-?[!#.',:;]" #remove meta characters and punctuation
+        pattern2 = r'[^\w]+[\s]{2,}' #match any non-word character followed by 2 or more spaces
         for i in self.sentence_holder:
-            self.sentence_holder_clean.append(re.sub(pattern, " ", i).lower())
+            i = re.sub(pattern, "", i).lower()
+            self.sentence_holder_clean.append(re.sub(pattern2, " ", i))
     
     def convert_to_json(self):
         self.data_dict = {}
