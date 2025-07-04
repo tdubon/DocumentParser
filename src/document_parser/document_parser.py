@@ -17,6 +17,7 @@ class Parser:
             return self.lines
     
     def sentence_parse(self):
+        self.read_in_lines()
         # attach each line and save as a long string
         for i in self.lines:
             self.long_string = self.long_string + " " + i.strip()
@@ -27,21 +28,26 @@ class Parser:
         return self.sentence_list
         
     def word_parse(self):
-            self.text = re.split(r'([,.:;?_!"+/()*#=<>]+|-|--|[\]]+|[\[]+|\s|[\n]+)', self.long_string)
-            self.text = [item.strip() for item in self.text if item.strip()]
-            return self.text
+        self.sentence_parse()
+        self.text = re.split(r'([,.:;?_!"+/()*#=<>]+|-|--|[\]]+|[\[]+|\s|[\n]+)', self.long_string)
+        self.text = [item.strip() for item in self.text if item.strip()]
+        self.text.extend(["<|endoftext|>","<|unk|>"])
+        return self.text
 
     #requires output from word_parse
     def vocab(self):
-            self.vocab = {token:integer for integer, token in enumerate(self.text)}
-            return(self.vocab)
+        self.word_parse()
+        self.vocab = {token:integer for integer, token in enumerate(self.text)}
+        return(self.vocab)
     
     # use to convert text into json format where every sentence is indexed
     def sentence_dict(self):
+        self.sentence_parse()
         self.data_dict = {idx: value for idx, value in enumerate(self.sentence_list)}
         return self.data_dict
     
     def encode(self):
+        self.vocab()
         self.str_to_int = self.vocab
         self.int_to_str = {i:s for s,i in self.vocab.items()}
         preprocessed = [item if item in self.str_to_int else "<|unk|>" for item in self.text]
@@ -49,6 +55,7 @@ class Parser:
         return self.ids  
 
     def decode(self):
+        self.encode()
         self.decoded_text = " ".join([self.int_to_str[i] for i in self.ids])
         self.decoded_text = re.sub(r'\s+([,.?!"()\'])', r'\1', self.decoded_text) #removes space before these punctuations
         return self.decoded_text 
