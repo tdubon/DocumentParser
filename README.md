@@ -11,23 +11,23 @@ This repo contains the files for a text document parser. Use it to prepare your 
 
 <h2> Usage </h2>
 
-`from document_parser import Parser
-folder_path = "/filepath/filename.txt"<br>  
-par = Parser(folder_path)<br>
-lines = par.read_in_lines()<br>
-sentences = par.sentence_parse()<br>
-words = par.word_parse()<br>
-vocab = par.vocab()<br>
-encoded_vector = par.encode()<br>
-decode = par.decode()`<br>  
+`from document_parser import Parser`<br>
+`folder_path = "/filepath/filename.txt"`<br>  
+`par = Parser(folder_path)<br>`<br>
+`lines = par.read_in_lines()`<br>
+`sentences = par.sentence_parse()`<br>
+`words = par.word_parse()`<br>
+`vocab = par.vocab()`<br>
+`encoded_vector = par.encode()`<br>
+`decode = par.decode()`<br>  
 <br>
  
 <h2> Example Output at the Sentence Level </h2>
 
-`par = Parser(folder_path)<br>
-lines = par.read_in_lines()<br>
-sentences = par.sentence_parse()<br>
-dictionary = par.sentence_dict()`<br>    
+`par = Parser(folder_path)`<br>
+`lines = par.read_in_lines()`<br>
+`sentences = par.sentence_parse()`<br>
+`dictionary = par.sentence_dict()`<br>    
 <br>
 {0: 'before we start fitting regression models we begin the model building process by performing an exploratory data analysis eda',<br>    
  1: 'given that we have a response variable y and four predictor variables x1 x2 x3 and x4 how do we perform an eda for a simple linear regression model',<br>  
@@ -36,9 +36,9 @@ dictionary = par.sentence_dict()`<br>
 
 <h2> Example Output at the Word Level </h2>
 
-`lines = par.read_in_lines()<br>
-sentences = par.sentence_parse()<br>
-words = par.word_parse()`<br>
+`lines = par.read_in_lines()`<br>
+`sentences = par.sentence_parse()`<br>
+`words = par.word_parse()`<br>
 <br>
 ['I', 'was', 'taught', 'it', 'in', 'childhood', 'and', 'throughout', 'my', 'boyhood', 'and', 'youth', '.', 'But', 'when', 'I', 'abandoned', 'the', 'second', 'course', 'of', 'the', 'university', 'at', 'the', 'age', 'of', 'eighteen', 'I', 'no']<br>
 <br>
@@ -47,7 +47,7 @@ words = par.word_parse()`<br>
 <br>
 To view the intermediary state of the data<br>
 
-`par.lines<br>
-par.sentence_list<br>
-par.text<br>`
+`par.lines`<br>
+`par.sentence_list`<br>
+`par.text<br>`
 
