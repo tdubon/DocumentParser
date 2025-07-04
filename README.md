@@ -7,7 +7,7 @@ This repo contains the files for a text document parser. Use it to prepare your 
 3. Move into the package folder with command: cd /YourFilepath/DocumentParser/src/document_parser<br>
 4. Startup and run python3<br>
 <br>
-## Usage
+## Usage<br>
 `from document_parser import Parser`<br>
 <br>
 `folder_path = "/filepath/filename.txt"<br>  
